@@ -26,8 +26,8 @@ def fun2():
     return 1
 def printingOutAllChoicesAndReturnUserChoice():
     print("\nWhat would you like to do?")
-    print("1) Login")
-    print("2) Register")
+    print("1) ")
+    print("2) ")
     print("3) Exit\n")
     v = int(input("> "))
     print("")
@@ -37,7 +37,7 @@ while True: #loop runs forever till break
     match c:
         case 1:
 
-            s = fun1()
+            s = fun2()
             if s == 0:
                 print("error: username not found")
             elif s == -1:
@@ -48,7 +48,7 @@ while True: #loop runs forever till break
                 print(database[s]["secret"])
             continue
         case 2:
-            s=fun2()
+            s=fun1()
             if s == 1:
                 print("\nSuccessfuly Registered!")
             elif s==-1:
