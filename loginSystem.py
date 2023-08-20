@@ -37,7 +37,7 @@ while True: #loop runs forever till break
     match c:
         case 1:
 
-            s = login()
+            s = ()  #write the name of the function
 
             if s == 0:
                 print("error: username not found")
@@ -49,7 +49,7 @@ while True: #loop runs forever till break
                 print(database[s]["secret"])
             continue
         case 2:
-            s=regrest()
+            s= ()  #write the name of the function
             if s == 1:
                 print("\nSuccessfuly Registered!")
             elif s==-1:
@@ -60,3 +60,5 @@ while True: #loop runs forever till break
             break
         case _:
             print("error: invalid input")
+
+#if u have anything to add do it and i'm with u
