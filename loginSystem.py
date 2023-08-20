@@ -1,43 +1,44 @@
 # simple login system with dictionary
 
 database = {}
-constantMessage1 = 'Username  '#i wanted to use a constant but had no idea what to do
+constantMessage1 = "Hello pls Enter your username: "#i wanted to use a constant but had no idea what to do
 #checks if username is in dattabase
-def checkingCaseOfUserNameInDataBase(x):
-    return x in database.keys()
+def checkingCaseOfUserNameInDataBase(username):
+    return username in database.keys()
 #for login
-def fun1():
-    x = input(constantMessage1)
-    if not checkingCaseOfUserNameInDataBase(x):
+def login():
+    username = input(constantMessage1)
+    if not checkingCaseOfUserNameInDataBase(username):
         return 0
-    y = input("Password: ")
-    if y == database[x]["password"]:
-        return x
+    password = input("Password: ")
+    if password == database[username]["password"]:
+        return username
     else:
         return -1
 #for register
-def fun2():
-    x = input(constantMessage1)
-    if checkingCaseOfUserNameInDataBase(x):
-        return -1
-    y = input("New Password: ")
-    z = input("Now enter your secrete phrase for safekeeping: ")
-    database[x] = {"password": y, "secret": z}
-    return 1
+def regrest():
+    username = input(constantMessage1)
+    if checkingCaseOfUserNameInDataBase(username):
+        return 1
+    password = input("New Password: ")
+    secret = input("Now enter your secrete phrase for safekeeping: ")
+    database[username] = {"password": password, "secret": secret}
+    return -1
 def printingOutAllChoicesAndReturnUserChoice():
     print("\nWhat would you like to do?")
-    print("1) ")
-    print("2) ")
+    print("1) login ")
+    print("2) register ")
     print("3) Exit\n")
-    v = int(input("> "))
+    chossing = int(input("> "))
     print("")
-    return v
+    return chossing
 while True: #loop runs forever till break
     c = printingOutAllChoicesAndReturnUserChoice()
     match c:
         case 1:
 
-            s = fun2()
+            s = login()
+
             if s == 0:
                 print("error: username not found")
             elif s == -1:
@@ -48,7 +49,7 @@ while True: #loop runs forever till break
                 print(database[s]["secret"])
             continue
         case 2:
-            s=fun1()
+            s=regrest()
             if s == 1:
                 print("\nSuccessfuly Registered!")
             elif s==-1:
