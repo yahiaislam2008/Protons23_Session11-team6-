@@ -1,64 +1,77 @@
-# simple login system with dictionary
+# simple login system
 
 database = {}
-constantMessage1 = "Hello pls Enter your username: "#i wanted to use a constant but had no idea what to do
-#checks if username is in dattabase
-def checkingCaseOfUserNameInDataBase(username):
+
+
+def username_exists(username):
     return username in database.keys()
-#for login
+
+
 def login():
-    username = input(constantMessage1)
-    if not checkingCaseOfUserNameInDataBase(username):
+    username = input("Username: ")
+    if not username_exists(username):
         return 0
     password = input("Password: ")
     if password == database[username]["password"]:
         return username
     else:
         return -1
-#for register
-def regrest():
-    username = input(constantMessage1)
-    if checkingCaseOfUserNameInDataBase(username):
+    
+
+def register():
+    username = input("Username : ")
+    if username_exists(username) == True:
         return 1
     password = input("New Password: ")
     secret = input("Now enter your secrete phrase for safekeeping: ")
     database[username] = {"password": password, "secret": secret}
     return -1
-def printingOutAllChoicesAndReturnUserChoice():
+
+
+def choices():
     print("\nWhat would you like to do?")
     print("1) login ")
     print("2) register ")
     print("3) Exit\n")
-    chossing = int(input("> "))
+    inp = int(input("> "))
     print("")
-    return chossing
-while True: #loop runs forever till break
-    c = printingOutAllChoicesAndReturnUserChoice()
-    match c:
+    return inp
+
+
+while True:
+    choice = choices()
+    match choice:
+
+
         case 1:
 
-            s = ()  #write the name of the function
+            func = (login()) 
 
-            if s == 0:
-                print("error: username not found")
-            elif s == -1:
-                print("error: incorrect password")
+            if func == 0:
+                print("Error: username not found")
+            elif func == -1:
+                print("Error: incorrect password")
             else:
-                print(f"\nWelcome back, {s}!")
+                print(f"\nWelcome back, {func}!")
                 print("Your secret phrase is:")
-                print(database[s]["secret"])
+                print(database[func]["secret"])
             continue
+
+
         case 2:
-            s= ()  #write the name of the function
-            if s == 1:
+            func = (register()) 
+            if func == -1:
                 print("\nSuccessfuly Registered!")
-            elif s==-1:
-                print("error: username already exists")
+            elif func == 1:
+                print("Error: username already exists")
             continue
+
+
         case 3:
             print("Thank You")
             break
-        case _:
-            print("error: invalid input")
 
-#if u have anything to add do it and i'm with u
+        
+        case _:
+            print("Error: invalid input")
+
